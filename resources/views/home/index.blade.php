@@ -7,7 +7,7 @@
       <div class="col-lg-12">
         <div class="breadcrumb-five">
           <ul class="breadcrumb">
-            <li class="mb-2"><a href="">ホーム</a></li>
+            <li class="active mb-2"><a href="">お知らせ一覧</a></li>
           </ul>
         </div>
         <div class="statbox widget box box-shadow">
@@ -40,18 +40,18 @@
                         </tr>
                       </thead>
                       <tbody>
-                        {{-- @foreach ($news as $k => $v)
-                        <tr role="row" class="odd clickable-row" data-href="{{ url('news/show', $v) }}">
+                        @foreach ($news as $k => $v)
+                        <tr role="row" class="odd clickable-row" data-href="{{ url('show', $v) }}">
                           <td>{{ $v->title }}</td>
                           <td>{{ $v->updated_at->format('Y-m-d') }}</td>
                         </tr>
-                        @endforeach --}}
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
                 </div>
                 <div class="row">
-                  {{-- @include('components.paginate', ['pagination' => $news]) --}}
+                  @include('components.paginate', ['pagination' => $news])
                 </div>
               </div>
             </div>

@@ -49,7 +49,7 @@ class UserControllerTest extends TestCase
             'role' => Role::Store_share
         ]);
 
-        // 会員アカウント
+        // ユーザーアカウント
         $this->normal_user = factory(User::class)->create([
             'organization_id' => $this->organization->id,
             'store_id' => $this->store->id,
@@ -81,7 +81,7 @@ class UserControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_会員を登録できる()
+    public function test_ユーザーを登録できる()
     {
         $this->actingAs($this->organization_admin_user)->get('/admin/user/create');
         $data = [
@@ -100,13 +100,13 @@ class UserControllerTest extends TestCase
             'status' => Status::Continue,
         ];
         $response = $this->post('/admin/user/store', $data);
-        $response->assertSessionHas('success_message', '会員を追加しました。');
+        $response->assertSessionHas('success_message', 'ユーザーを追加しました。');
         $this->assertDatabaseHas('users', [
             'email' => $data['email'],
         ]);
     }
 
-    public function test_会員を編集できる()
+    public function test_ユーザーを編集できる()
     {
         $this->actingAs($this->organization_admin_user)->get('/admin/user/edit');
         $new_email = 'new@gmail.com';
@@ -126,26 +126,26 @@ class UserControllerTest extends TestCase
             'status' => Status::Continue,
         ];
         $response = $this->post('/admin/user/update/' . $this->store_share_user->id, $data);
-        $response->assertSessionHas('success_message', '会員情報を編集しました。');
+        $response->assertSessionHas('success_message', 'ユーザー情報を編集しました。');
         $this->assertDatabaseHas('users', [
             'email' => $new_email,
         ]);
     }
 
-    public function test_会員の詳細画面を閲覧できる()
+    public function test_ユーザーの詳細画面を閲覧できる()
     {
         $response = $this->actingAs($this->organization_admin_user)->get('/admin/user/show/' . $this->normal_user->id);
         $response->assertStatus(200);
     }
 
-    public function test_会員を削除できる()
+    public function test_ユーザーを削除できる()
     {
         $this->actingAs($this->organization_admin_user)->get('/admin/user/edit/' . $this->normal_user->id);
         $this->assertDatabaseHas('users', [
             'id' => $this->normal_user->id,
         ]);
         $response = $this->get('/admin/user/delete/' . $this->normal_user->id);
-        $response->assertSessionHas('success_message', '会員を削除しました。');
+        $response->assertSessionHas('success_message', 'ユーザーを削除しました。');
         $this->assertDatabaseMissing('users', [
             'id' => $this->normal_user->id,
         ]);

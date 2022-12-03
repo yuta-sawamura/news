@@ -24,7 +24,7 @@ class UserPolicy
     }
 
     /**
-     * 管理画面でユーザーは会員を閲覧・操作できるか判定
+     * 管理画面でユーザーはユーザーを閲覧・操作できるか判定
      *
      * @param  App\User  $user
      * @param  App\User  $model
@@ -36,7 +36,7 @@ class UserPolicy
     }
 
     /**
-     * 会員画面でユーザーは会員を閲覧できるか判定
+     * ユーザー画面でユーザーはユーザーを閲覧できるか判定
      *
      * @param  App\User  $user
      * @param  App\User  $model
