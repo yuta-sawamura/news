@@ -23,7 +23,7 @@ class NewsPolicy
     }
 
     /**
-     * 会員画面でユーザーはお知らせを閲覧できるか判定
+     * ユーザー画面でユーザーはお知らせを閲覧できるか判定
      *
      * @param  App\User  $user
      * @param  App\Models\News $news

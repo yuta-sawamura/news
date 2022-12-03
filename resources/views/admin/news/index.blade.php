@@ -9,8 +9,7 @@
       <div class="col-lg-12">
         <div class="breadcrumb-five">
           <ul class="breadcrumb">
-            <li class="mb-2"><a href="{{ url('/admin') }}">ホーム</a></li>
-            <li class="active mb-2"><a href="">お知らせ一覧</a></li>
+            <li class="mb-2"><a href="">お知らせ一覧</a></li>
           </ul>
         </div>
         <div class="statbox widget box box-shadow">
@@ -23,7 +22,7 @@
           </div>
           <div class="widget-content widget-content-area">
             <div class="col-md-12 text-right">
-              <a href="{{ url('/admin/news/create') }}" class="btn btn-outline-primary mb-2 mr-2">追加</a>
+              <a href="{{ url('/admin/create') }}" class="btn btn-outline-primary mb-2 mr-2">追加</a>
             </div>
             <div class="table-responsive mb-4 style-1">
               <div id="style-1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
@@ -38,7 +37,8 @@
                 </div>
                 <div class="row">
                   <div class="col-sm-12">
-                    <table id="style-1" class="table no-footer" role="grid" aria-describedby="style-1_info" style="table-layout: fixed; width: 100%;">
+                    <table id="style-1" class="table no-footer" role="grid" aria-describedby="style-1_info"
+                      style="table-layout: fixed; width: 100%;">
                       <thead>
                         <tr role="row">
                           <th style="width: 100px;">店舗</th>
@@ -48,11 +48,11 @@
                       </thead>
                       <tbody>
                         @foreach ($news as $k => $v)
-                          <tr role="row" class="odd clickable-row" data-href="{{ url('/admin/news/show', $v) }}">
-                            <td>{{ $v->name }}</td>
-                            <td>{{ $v->title }}</td>
-                            <td>{{ $v->updated_at->format('Y-m-d') }}</td>
-                          </tr>
+                        <tr role="row" class="odd clickable-row" data-href="{{ url('/admin/show', $v) }}">
+                          <td>{{ $v->name }}</td>
+                          <td>{{ $v->title }}</td>
+                          <td>{{ $v->updated_at->format('Y-m-d') }}</td>
+                        </tr>
                         @endforeach
                       </tbody>
                     </table>

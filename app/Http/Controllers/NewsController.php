@@ -28,7 +28,7 @@ class NewsController extends Controller
             ->orderBy('news.id', 'desc')
             ->paginate(config('const.PAGINATION_PER_PAGE'));
 
-        return view('news.index')->with([
+        return view('home.index')->with([
             'news' => $news,
             'params' => $params,
         ]);
@@ -36,7 +36,7 @@ class NewsController extends Controller
 
     public function show(News $news)
     {
-        return view('news.show')->with([
+        return view('home.show')->with([
             'news' => $news
         ]);
     }

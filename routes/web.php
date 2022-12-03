@@ -17,7 +17,8 @@ if (config('app.env') == 'production') {
 
 Route::group(['middleware' => 'auth'], function () {
     // ホーム
-    Route::get('/', 'HomeController@index');
+    Route::get('/', 'NewsController@index');
+    Route::get('show/{news}', 'NewsController@show')->middleware('can:view,news');
 
     // 出席
     Route::prefix('attendance')->group(function () {
@@ -25,7 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('store_multiple', 'AttendanceController@storeMultiple');
     });
 
-    // 会員
+    // ユーザー
     Route::prefix('user')->group(function () {
         Route::get('/', 'UserController@index');
         Route::get('show/{user}', 'UserController@show')->middleware('can:view,user');
@@ -33,22 +34,22 @@ Route::group(['middleware' => 'auth'], function () {
 
     // ランキング
     Route::get('rank', 'UserController@rank');
-
-    // お知らせ
-    Route::prefix('news')->group(function () {
-        Route::get('/', 'NewsController@index');
-        Route::get('show/{news}', 'NewsController@show')->middleware('can:view,news');
-    });
 });
 
 // 組織管理者以上
 Route::group(['middleware' => ['auth', 'can:organization-admin-higher']], function () {
     // 管理画面
     Route::prefix('admin')->group(function () {
-        // ホーム
-        Route::get('/', 'Admin\UserController@rank');
+        // お知らせ
+        Route::get('/', 'Admin\NewsController@index');
+        Route::get('create', 'Admin\NewsController@create');
+        Route::post('store', 'Admin\NewsController@store');
+        Route::get('show/{news}', 'Admin\NewsController@show')->middleware('can:anyAdmin,news');
+        Route::get('edit/{news}', 'Admin\NewsController@edit')->middleware('can:anyAdmin,news');
+        Route::post('update/{news}', 'Admin\NewsController@update')->middleware('can:anyAdmin,news');
+        Route::get('delete/{news}', 'Admin\NewsController@delete')->middleware('can:anyAdmin,news');
 
-        // 会員
+        // ユーザー
         Route::prefix('user')->group(function () {
             Route::get('/', 'Admin\UserController@index');
             Route::get('create', 'Admin\UserController@create');
@@ -108,17 +109,6 @@ Route::group(['middleware' => ['auth', 'can:organization-admin-higher']], functi
             Route::get('edit/{schedule}', 'Admin\ScheduleController@edit')->middleware('can:anyAdmin,schedule');
             Route::post('update/{schedule}', 'Admin\ScheduleController@update')->middleware('can:anyAdmin,schedule');
             Route::get('delete/{schedule}', 'Admin\ScheduleController@delete')->middleware('can:anyAdmin,schedule');
-        });
-
-        // お知らせ
-        Route::prefix('news')->group(function () {
-            Route::get('/', 'Admin\NewsController@index');
-            Route::get('create', 'Admin\NewsController@create');
-            Route::post('store', 'Admin\NewsController@store');
-            Route::get('show/{news}', 'Admin\NewsController@show')->middleware('can:anyAdmin,news');
-            Route::get('edit/{news}', 'Admin\NewsController@edit')->middleware('can:anyAdmin,news');
-            Route::post('update/{news}', 'Admin\NewsController@update')->middleware('can:anyAdmin,news');
-            Route::get('delete/{news}', 'Admin\NewsController@delete')->middleware('can:anyAdmin,news');
         });
     });
 });

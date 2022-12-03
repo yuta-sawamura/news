@@ -48,7 +48,7 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         $this->user->fill($request->validated())->save();
-        return redirect('/admin/user')->with('success_message', '会員を追加しました。');
+        return redirect('/admin/user')->with('success_message', 'ユーザーを追加しました。');
     }
 
     public function show(User $user, Request $request)
@@ -88,24 +88,24 @@ class UserController extends Controller
     {
         $user->fill($request->validated())->save();
 
-        return redirect('/admin/user/show/' . $user->id)->with('success_message', '会員情報を編集しました。');
+        return redirect('/admin/user/show/' . $user->id)->with('success_message', 'ユーザー情報を編集しました。');
     }
 
     public function delete(User $user)
     {
         $user->delete();
 
-        return redirect('/admin/user')->with('success_message', '会員を削除しました。');
+        return redirect('/admin/user')->with('success_message', 'ユーザーを削除しました。');
     }
 
     public function rank(Request $request)
     {
         $params = $request->query();
-        // 累計会員数
+        // 累計ユーザー数
         $totalUsersCount = User::where('organization_id', Auth::user()->organization_id)
             ->where('role', Role::Normal)
             ->count();
-        // 実働会員数
+        // 実働ユーザー数
         $workingUsers = User::select('users.id')
             ->join('attendances', 'attendances.user_id', '=', 'users.id')
             ->where('organization_id', Auth::user()->organization_id)
@@ -132,12 +132,12 @@ class UserController extends Controller
             // 年別
             foreach ($years as $key => $year) {
                 $yearUsers['years'][] = $year . '年';
-                // 累計会員数
+                // 累計ユーザー数
                 $yearUsers['users_count'][] = User::where('store_id', $params['store'])
                     ->where('users.role', Role::Normal)
                     ->whereYear('created_at', '<=', $year)
                     ->count();
-                // 実働会員数
+                // 実働ユーザー数
                 $workingYearUsers = User::select('users.id')
                     ->join('attendances', 'attendances.user_id', '=', 'users.id')
                     ->where('users.role', Role::Normal)
@@ -166,12 +166,12 @@ class UserController extends Controller
                 $dt = Carbon::now();
                 $thisDay = $dt->setDate($dt->year, $dt->month, 1);
                 if ($day->lte($thisDay)) {
-                    // 累計会員数
+                    // 累計ユーザー数
                     $monthUsers['users_count'][] = User::where('store_id', $params['store'])
                         ->where('users.role', Role::Normal)
                         ->where('created_at', '<=', $dt->setDate($params['year'], $i, 1)->format('Y-m-t'))
                         ->count();
-                    // 実働会員数
+                    // 実働ユーザー数
                     $workingMonthUsers = User::select('users.id')
                         ->join('attendances', 'attendances.user_id', '=', 'users.id')
                         ->where('users.role', Role::Normal)

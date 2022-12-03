@@ -11,7 +11,7 @@ class AttendancePolicy
     use HandlesAuthorization;
 
     /**
-     * 管理画面でユーザーは会員を閲覧・操作できるか判定
+     * 管理画面でユーザーはユーザーを閲覧・操作できるか判定
      *
      * @param  App\User  $user
      * @param  App\Models\Attendance $attendance

@@ -66,19 +66,19 @@ class UserControllerTest extends TestCase
         ]);
     }
 
-    public function test_会員一覧画面にアクセス時にステータスコード200を返す()
+    public function test_ユーザー一覧画面にアクセス時にステータスコード200を返す()
     {
         $response = $this->actingAs($this->store_share_user)->get('user');
         $response->assertStatus(200);
     }
 
-    public function test_会員詳細画面にアクセス時にステータスコード200を返す()
+    public function test_ユーザー詳細画面にアクセス時にステータスコード200を返す()
     {
         $response = $this->actingAs($this->store_share_user)->get('user/show/' . $this->normal_user->id);
         $response->assertStatus(200);
     }
 
-    public function test_別組織の会員詳細画面にアクセス時にステータスコード403を返す()
+    public function test_別組織のユーザー詳細画面にアクセス時にステータスコード403を返す()
     {
         $response = $this->actingAs($this->other_store_share_user)->get('user/show/' . $this->normal_user->id);
         $response->assertStatus(403);
