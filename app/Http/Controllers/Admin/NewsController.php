@@ -42,7 +42,7 @@ class NewsController extends Controller
     public function store(NewsRequest $request)
     {
         $this->news->fill($request->validated())->save();
-        return redirect('/admin/news')->with('success_message', 'お知らせを追加しました。');
+        return redirect('/admin')->with('success_message', 'お知らせを追加しました。');
     }
 
     public function show(News $news)
@@ -63,13 +63,13 @@ class NewsController extends Controller
     {
         $news->fill($request->all())->save();
 
-        return redirect('/admin/news/show/' . $news->id)->with('success_message', 'お知らせを編集しました。');
+        return redirect('/admin/show/' . $news->id)->with('success_message', 'お知らせを編集しました。');
     }
 
     public function delete(News $news)
     {
         $news->delete();
 
-        return redirect('/admin/news')->with('success_message', 'お知らせを削除しました。');
+        return redirect('/admin')->with('success_message', 'お知らせを削除しました。');
     }
 }
