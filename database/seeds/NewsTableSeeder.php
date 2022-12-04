@@ -14,7 +14,6 @@ class NewsTableSeeder extends Seeder
         DB::table('news')->insert([
             [
                 'id' => 1,
-                'store_id' => 1,
                 'title' => '休館のお知らせ',
                 'content' => '山田インストラクターは体調不良のため、**7月10日~7月20日まで休館**します。
 7月の月謝に関しては、10日分差し引きます。皆さまにはご迷惑をおかけしますが、クラスが再開できるよう大事取らせいただきます。
@@ -27,7 +26,6 @@ class NewsTableSeeder extends Seeder
             ],
             [
                 'id' => 2,
-                'store_id' => 1,
                 'title' => '店内清掃のお知らせ',
                 'content' => '2020年10月28日(水)は一部の設備を店内清掃を行います。そのため、13:00~14:00の間は一部の施設が利用ができません。
 また、下記の日程で店内清掃を行う予定です。時間について後日お知らせします。
@@ -43,7 +41,6 @@ class NewsTableSeeder extends Seeder
             ],
             [
                 'id' => 3,
-                'store_id' => 2,
                 'title' => '自粛期間',
                 'content' => 'コロナウイルスの影響で10月は**休館**です。
 
@@ -55,7 +52,6 @@ class NewsTableSeeder extends Seeder
             ],
             [
                 'id' => 4,
-                'store_id' => 1,
                 'title' => 'コロナ対策の徹底',
                 'content' => '**コロナ対策**を徹底しております。
 

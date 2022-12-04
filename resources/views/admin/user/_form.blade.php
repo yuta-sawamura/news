@@ -79,25 +79,6 @@
                 @include('components.validations.feedback', ['message' => 'birth'])
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>状態<span class="text-danger">*</span></label>
-                <div class="row">
-                  <div class="col-md-12">
-                    <select name="status" class="form-control @error('status') is-invalid @enderror" required>
-                      <option selected="selected" value="">選択してください</option>
-                      @foreach($status as $s)
-                      <option value="{{ $s->value }}" {{ old('status')==$s->value || isset($user->status) &&
-                        $user->status == $s->value ? 'selected': '' }}>
-                        {{ $s->description }}
-                      </option>
-                      @endforeach
-                    </select>
-                    @include('components.validations.feedback', ['message' => 'status'])
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div class="col-lg-12 text-right">
             @isset ($isEdit)

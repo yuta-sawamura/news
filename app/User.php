@@ -4,10 +4,8 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Builder;
 use App\Enums\User\Gender;
-use App\Enums\User\Status;
 use Laravel\Cashier\Billable;
 
 class User extends Authenticatable
@@ -28,7 +26,6 @@ class User extends Authenticatable
         'email',
         'birth',
         'password',
-        'status'
     ];
 
     /**
@@ -74,15 +71,6 @@ class User extends Authenticatable
     public function getGenderNameAttribute()
     {
         return Gender::getDescription($this->gender);
-    }
-
-    /**
-     * 状態
-     * @return stiring
-     */
-    public function getStatusNameAttribute()
-    {
-        return Status::getDescription($this->status);
     }
 
     /**

@@ -28,7 +28,6 @@ $factory->define(User::class, function (Faker $faker) {
         'birth' => $faker->dateTimeThisCentury()->format('Y-m-d'),
         'password' => bcrypt('secret'),
         'email_verified_at' => now(),
-        'status' => 1,
         'remember_token' => Str::random(10),
         'created_at' => $faker->dateTime(),
         'updated_at' => $faker->dateTime(),

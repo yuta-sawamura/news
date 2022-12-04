@@ -18,7 +18,6 @@ class UserComposer
     {
         $view->with([
             'genders' => U\Gender::getInstances(),
-            'status' => U\Status::getInstances(),
         ]);
     }
 }
