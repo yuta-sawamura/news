@@ -17,7 +17,7 @@ if (config('app.env') == 'production') {
 
 // ホーム
 Route::get('/', 'NewsController@index');
-Route::get('show/{news}', 'NewsController@show');
+Route::get('{news}', 'NewsController@show');
 
 // 管理画面
 Route::group(
@@ -28,7 +28,7 @@ Route::group(
             Route::get('/', 'Admin\NewsController@index');
             Route::get('create', 'Admin\NewsController@create');
             Route::post('store', 'Admin\NewsController@store');
-            Route::get('show/{news}', 'Admin\NewsController@show');
+            Route::get('{news}', 'Admin\NewsController@show');
             Route::get('edit/{news}', 'Admin\NewsController@edit');
             Route::post('update/{news}', 'Admin\NewsController@update');
             Route::get('delete/{news}', 'Admin\NewsController@delete');

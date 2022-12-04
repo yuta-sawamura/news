@@ -63,7 +63,7 @@ class NewsController extends Controller
     {
         $news->fill($request->all())->save();
 
-        return redirect('/admin/news/show/' . $news->id)->with('success_message', 'お知らせを編集しました。');
+        return redirect('/admin/news/' . $news->id)->with('success_message', 'お知らせを編集しました。');
     }
 
     public function delete(News $news)
