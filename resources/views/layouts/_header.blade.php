@@ -26,6 +26,7 @@
         <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
           <div class="">
             <div class="dropdown-item">
+              <?php if (\Auth::check()): ?>
               <a href="#" onclick="submitLogout()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round" class="feather feather-log-out">
@@ -34,6 +35,9 @@
                   <line x1="21" y1="12" x2="9" y2="12"></line>
                 </svg> ログアウト
               </a>
+              <?php else: ?>
+              <a href="login">ログイン</a>
+              <?php endif; ?>
             </div>
             <form method="post" name="header_logout" action="{{ route('logout') }}" id="logout">
               @csrf
