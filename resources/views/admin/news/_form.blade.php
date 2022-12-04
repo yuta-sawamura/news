@@ -1,4 +1,8 @@
-<form action="/admin/news/<?= isset($add) ? 'store' : " update/$news->id" ?>" method="post">
+@if(isset($add))
+<form action="/admin/store" method="post">
+@else
+<form action="/admin/update/<?= $news->id ?>" method="post">
+@endif
   @csrf
   <div class="form-group col-xl-4 col-md-12 col-sm-12 col-12">
     <label>タイトル<span class="text-danger">*</span></label>
@@ -15,7 +19,7 @@
   </div>
   <div class="col-xl-10 col-md-12 col-sm-12 col-12 text-right">
     @isset ($isEdit)
-    <a class="btn btn-danger mb-2 mt-5" href="{{ url('admin/news/delete', $news) }}"
+    <a class="btn btn-danger mb-2 mt-5" href="{{ url('admin/delete', $news) }}"
       onclick="return confirm('本当によろしいですか？')" role="button">削除</a>
     @endisset
     <button type="submit" class="btn btn-primary mb-2 mt-5">保存</button>

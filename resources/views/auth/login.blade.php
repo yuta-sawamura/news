@@ -57,7 +57,6 @@
                 </div>
               </div>
               <p class="signup-link"><a href="/">Top</a></p>
-              <p class="signup-link"><a href="{{ url('password/reset') }}">パスワードをお忘れですか？</a></p>
             </div>
           </form>
         </div>

@@ -27,7 +27,7 @@
             <div class="table-responsive mb-4 style-1">
               <div id="style-1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
                 <div class="widget-content widget-content-area">
-                  <form action="{{url('/admin/news')}}">
+                  <form action="{{url('/admin')}}">
                     <div class="form-row">
                       @include('components.search.keyword', ['params' => $params, 'name' => 'タイトル・本文'])
                     </div>

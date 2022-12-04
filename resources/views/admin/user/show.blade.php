@@ -18,9 +18,6 @@
             <div class="d-flex justify-content-between">
               <h3 class="">ユーザー詳細</h3>
             </div>
-            <div class="col-md-12 text-right">
-              <a href="{{ url('/admin/user/edit', $user) }}" class="btn btn-outline-primary">編集</a>
-            </div>
             <div class="text-center user-info">
               <p>{{ $user->full_name }}<br>{{ $user->full_name_kana }}</p>
             </div>
@@ -31,7 +28,7 @@
                     <p>性別： {{ $user->gender_name }}</p>
                   </li>
                   <li class="contacts-block__item">
-                    <p>状態： {{ $user->status_name }}</p>
+                    <p>メール： {{ $user->email }}</p>
                   </li>
                   <li class="contacts-block__item">
                     <p>作成日： {{ $user->created_at->format('Y-m-d') }}</p>
