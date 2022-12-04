@@ -25,9 +25,7 @@ class UserController extends Controller
     {
         $params = $request->query();
 
-        $users = User::where('organization_id', Auth::user()->organization_id)
-            ->where('role', '=', Role::Normal)
-            ->search($params)
+        $users = User::search($params)
             ->orderBy('id', 'desc')
             ->paginate(config('const.PAGINATION_PER_PAGE'));
 

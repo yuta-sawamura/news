@@ -18,7 +18,6 @@ use Faker\Generator as Faker;
 
 $factory->define(News::class, function (Faker $faker) {
     return [
-        'store_id' => 1,
         'title' => '2月のお知らせ',
         'content' => 'お休みです。',
     ];

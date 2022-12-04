@@ -112,7 +112,6 @@ return [
         'email' => 'メールアドレス',
         'birth' => '生年月日',
         'password' => 'パスワード',
-        'status' => 'users.status',
         'title' => 'タイトル',
         'content' => '内容',
         'classes.name' => 'クラス名',

@@ -3,11 +3,8 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use Auth;
 use App\Enums\User\Role;
-use App\Enums\User\Status;
 
 class UserRequest extends FormRequest
 {
@@ -52,7 +49,6 @@ class UserRequest extends FormRequest
             'email' => 'nullable|unique:users,email,' . $this->id . '|email|max:100|required_unless:role,' . Role::Normal,
             'birth' => 'required|date',
             'password' => 'nullable|string|min:8|required_unless:role,' . Role::Normal,
-            'status' => 'required|in:' . Status::Continue . ',' . Status::Cancel,
         ];
     }
 
@@ -73,7 +69,6 @@ class UserRequest extends FormRequest
             'email' => 'nullable|unique:users,email,' . $this->id . '|email|max:100',
             'birth' => 'required|date',
             'password' => 'nullable|string|min:8',
-            'status' => 'required|in:' . Status::Continue . ',' . Status::Cancel,
         ];
     }
 
