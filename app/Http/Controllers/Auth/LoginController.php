@@ -36,7 +36,6 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
     }
 
     /**
@@ -48,19 +47,7 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        return redirect('/')->with('success_message', 'ログインしました。');
-    }
-
-    /**
-     * ゲストログイン
-     * @return \Illuminate\Http\Response
-     */
-    protected function guestLogin()
-    {
-        if (\Auth::attempt(['email' => env('ORGANIZATION_ADMIN_MAIL'), 'password' => env('ORGANIZATION_ADMIN_PASSWORD')])) {
-            return redirect('admin')->with('success_message', 'ログインしました。');
-        }
-        return back();
+        return redirect('/admin')->with('success_message', 'ログインしました。');
     }
 
     /**
