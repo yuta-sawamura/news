@@ -6,12 +6,12 @@ namespace Tests\Feature\Http\Controllers\Admin;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\User;
-use App\Models\Store;
+use App\User;;
+
 use App\Models\Organization;
 use App\Models\Category;
 use App\Models\Classwork;
-use App\Models\Schedule;
+
 use App\Enums\User\Role;
 use App\Enums\Day;
 

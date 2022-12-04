@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-  <title>SHUSSEKIKUN</title>
+  <title>News</title>
   <link rel="icon" type="image/x-icon" href="{{ asset('/img/logo.png') }}">
   <!-- BEGIN STYLES -->
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
@@ -23,4 +24,5 @@
   <script src="{{ asset('js/prop_disable.js') }}"></script>
   <!-- END SCRIPTS -->
 </body>
+
 </html>

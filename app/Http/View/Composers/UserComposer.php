@@ -17,11 +17,8 @@ class UserComposer
     public function compose(View $view)
     {
         $view->with([
-            'roles' => U\Role::getInstances(),
             'genders' => U\Gender::getInstances(),
             'status' => U\Status::getInstances(),
-            'categories' => Models\Category::where('organization_id', Auth::user()->organization_id ?? null)->pluck('name', 'id'),
-            'organizations' => Models\Organization::pluck('name', 'id'),
         ]);
     }
 }

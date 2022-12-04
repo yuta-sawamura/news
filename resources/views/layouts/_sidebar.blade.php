@@ -36,7 +36,6 @@
           </div>
         </a>
       </li>
-      @can('organization-admin-higher')
       <li class="menu mt-5">
         <a href="{{ url('admin/') }}" aria-expanded="false" class="dropdown-toggle">
           <div>
@@ -53,7 +52,6 @@
           </div>
         </a>
       </li>
-      @endcan
     </ul>
   </nav>
 </div>

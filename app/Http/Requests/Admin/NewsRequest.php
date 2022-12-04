@@ -24,7 +24,6 @@ class NewsRequest extends FormRequest
     public function rules()
     {
         return [
-            'store_id' => 'required|integer',
             'title' => 'required|string|max:50',
             'content' => 'required|string'
         ];
@@ -37,8 +36,6 @@ class NewsRequest extends FormRequest
     public function messages()
     {
         return [
-            'store_id.required' => '店舗は必須です。',
-            'store_id.integer' => '正しく選択してください。',
             'title.required' => 'タイトルは必須です。',
             'title.max:50' => 'タイトルは50文字までです。',
             'content.required' => '本文は必須です。',

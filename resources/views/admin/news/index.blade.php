@@ -29,7 +29,6 @@
                 <div class="widget-content widget-content-area">
                   <form action="{{url('/admin/news')}}">
                     <div class="form-row">
-                      @include('components.search.store', ['params' => $params, 'stores' =>$stores])
                       @include('components.search.keyword', ['params' => $params, 'name' => 'タイトル・本文'])
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">検索する</button>
@@ -41,7 +40,6 @@
                       style="table-layout: fixed; width: 100%;">
                       <thead>
                         <tr role="row">
-                          <th style="width: 100px;">店舗</th>
                           <th style="width: 150px;">タイトル</th>
                           <th style="width: 120px;">更新日</th>
                         </tr>
@@ -49,7 +47,6 @@
                       <tbody>
                         @foreach ($news as $k => $v)
                         <tr role="row" class="odd clickable-row" data-href="{{ url('/admin/show', $v) }}">
-                          <td>{{ $v->name }}</td>
                           <td>{{ $v->title }}</td>
                           <td>{{ $v->updated_at->format('Y-m-d') }}</td>
                         </tr>

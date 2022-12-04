@@ -25,7 +25,6 @@
             <div class="col-md-12 text-right">
               <a href="{{ url('/admin/edit', $news) }}" class="btn btn-outline-primary">編集</a>
             </div>
-            <p>{{ $news->store->name }}</p>
             <p class="lead">{{ $news->title }}</p>
             <hr>
             <div class="table-responsive my-4 style-1">
