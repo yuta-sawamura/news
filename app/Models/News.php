@@ -15,18 +15,9 @@ class News extends Model
      * @var array
      */
     protected $fillable = [
-        'store_id',
         'title',
         'content',
     ];
-
-    /**
-     * このお知らせを所有する店舗を取得
-     */
-    public function store()
-    {
-        return $this->belongsTo('App\Models\Store');
-    }
 
     /**
      * 検索・絞り込み
@@ -36,9 +27,6 @@ class News extends Model
      */
     public function scopesearch(Builder $query, array $params): Builder
     {
-        // 店舗絞り込み
-        if (!empty($params['store'])) $query->where('store_id', $params['store']);
-
         // キーワード検索
         if (!empty($params['keyword'])) {
             $query->where(function ($query) use ($params) {

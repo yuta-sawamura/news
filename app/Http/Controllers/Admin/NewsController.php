@@ -23,10 +23,7 @@ class NewsController extends Controller
             'news.id',
             'news.title',
             'news.updated_at',
-            'stores.name'
         )
-            ->join('stores', 'stores.id', '=', 'news.store_id')
-            ->where('stores.organization_id', Auth::user()->organization_id)
             ->search($params)
             ->orderBy('news.updated_at', 'desc')
             ->paginate(config('const.PAGINATION_PER_PAGE'));

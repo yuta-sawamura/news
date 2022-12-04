@@ -104,22 +104,15 @@ return [
     */
 
     'attributes' => [
-        'organization_id' => '組織ID',
-        'store_id' => '店舗ID',
-        'category_id' => 'カテゴリーID',
         'sei' => '姓',
         'mei' => '名',
         'sei_kana' => '姓(カタカナ)',
         'mei_kana' => '名(カタカナ)',
-        'img' => '画像',
         'gender' => '性別',
         'email' => 'メールアドレス',
         'birth' => '生年月日',
-        'role' => '権限',
         'password' => 'パスワード',
         'status' => 'users.status',
-        'stores.name' => '店舗名',
-        'organizations.name' => '組織名',
         'title' => 'タイトル',
         'content' => '内容',
         'classes.name' => 'クラス名',
@@ -128,7 +121,6 @@ return [
         'end_at' => '終了時間',
         'categories.name' => 'カテゴリー名',
         'user_id' => 'ユーザーID',
-        'class_id' => 'クラスID',
     ],
 
 ];

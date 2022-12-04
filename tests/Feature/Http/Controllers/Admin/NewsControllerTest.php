@@ -6,8 +6,8 @@ namespace Tests\Feature\Http\Controllers\Admin;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\User;
-use App\Models\Store;
+use App\User;;
+
 use App\Models\Organization;
 use App\Models\News;
 use App\Enums\User\Role;

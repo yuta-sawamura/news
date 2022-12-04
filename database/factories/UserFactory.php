@@ -19,18 +19,13 @@ use Illuminate\Support\Str;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'organization_id' => null,
-        'store_id' => null,
-        'category_id' => null,
         'sei' => $faker->lastName(),
         'mei' => $faker->firstName(),
         'sei_kana' => $faker->lastName(),
         'mei_kana' => $faker->firstName(),
-        'img' => null,
         'gender' => $faker->numberBetween($min = 1, $max = 2),
         'email' => $faker->safeEmail(),
         'birth' => $faker->dateTimeThisCentury()->format('Y-m-d'),
-        'role' => 3,
         'password' => bcrypt('secret'),
         'email_verified_at' => now(),
         'status' => 1,

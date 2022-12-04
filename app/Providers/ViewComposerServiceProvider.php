@@ -30,9 +30,6 @@ class ViewComposerServiceProvider extends ServiceProvider
     {
         View::composers([
             V\UserComposer::class => ['admin/user/*', 'user/*', 'home/*'],
-            V\StoreComposer::class => ['admin/user/*', 'admin/classwork/*', 'admin/schedule/*', 'admin/news/*'],
-            V\ClassworkComposer::class => 'admin/schedule/*',
-            V\DayComposer::class => 'admin/schedule/*',
         ]);
     }
 }
