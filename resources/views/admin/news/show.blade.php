@@ -9,15 +9,15 @@
       <div class="col-lg-12">
         <div class="breadcrumb-five">
           <ul class="breadcrumb">
-            <li class="mb-2"><a href="{{ url('/admin') }}">お知らせ一覧</a></li>
-            <li class="active mb-2"><a href="">お知らせ詳細</a></li>
+            <li class="mb-2"><a href="{{ url('/admin') }}">ニュース一覧</a></li>
+            <li class="active mb-2"><a href="">ニュース詳細</a></li>
           </ul>
         </div>
         <div class="statbox widget box box-shadow">
           <div class="widget-header">
             <div class="row">
               <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                <h4>お知らせ詳細</h4>
+                <h4>ニュース詳細</h4>
               </div>
             </div>
           </div>
