@@ -1,4 +1,4 @@
-FROM php:7.3.20-fpm-alpine
+FROM php:7.4.26-fpm-alpine
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 COPY --from=composer /usr/bin/composer /usr/bin/composer
