@@ -37,7 +37,9 @@
   <!--  END LOADER -->
 
   <!--  BEGIN NAVBAR  -->
+  <?php if (\Auth::check()): ?>
   @include('layouts._header')
+  <?php endif; ?>
   <!--  END NAVBAR  -->
 
   <!--  BEGIN MAIN CONTAINER  -->

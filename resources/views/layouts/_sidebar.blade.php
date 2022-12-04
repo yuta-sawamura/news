@@ -36,6 +36,7 @@
           </div>
         </a>
       </li>
+      <?php if (\Auth::check()): ?>
       <li class="menu mt-5">
         <a href="{{ url('admin/') }}" aria-expanded="false" class="dropdown-toggle">
           <div>
@@ -52,6 +53,7 @@
           </div>
         </a>
       </li>
+      <?php endif; ?>
     </ul>
   </nav>
 </div>
