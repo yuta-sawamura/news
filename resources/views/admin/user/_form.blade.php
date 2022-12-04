@@ -81,10 +81,6 @@
             </div>
           </div>
           <div class="col-lg-12 text-right">
-            @isset ($isEdit)
-            <a class="btn btn-danger mb-2 mt-5" href="{{ url('admin/user/delete/' . $user->id) }}"
-              onclick="return confirm('関連データも全て削除されますが本当によろしいですか？')" role="button">削除</a>
-            @endisset
             <button type="submit" id="user-submit" class="btn btn-primary mb-2 mt-5">保存</button>
           </div>
         </div>

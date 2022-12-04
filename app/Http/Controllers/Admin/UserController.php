@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\User;;
-
-use App\Models\Attendance;
-
-use Auth;
-use App\Enums\User\Role;
+use Illuminate\Support\Facades\Hash;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\UserRequest;
@@ -42,39 +38,21 @@ class UserController extends Controller
 
     public function store(UserRequest $request)
     {
-        $this->user->fill($request->validated())->save();
+        // $this->user->fill($request->validated())->save();
+        $this->user->fill(array_merge(
+            $request->all(),
+            ['password' => Hash::make($request->password)]
+        ))->save();
         return redirect('/admin/user')->with('success_message', 'ユーザーを追加しました。');
     }
 
     public function show(User $user, Request $request)
     {
         $params = $request->query();
-        if (!isset($params['year'])) $params['year'] = $this->dt->year;
 
         return view('admin.user.show')->with([
             'user' => $user,
             'params' => $params,
         ]);
-    }
-
-    public function edit(User $user)
-    {
-        return view('admin.user.edit')->with([
-            'user' => $user
-        ]);
-    }
-
-    public function update(User $user, UserRequest $request)
-    {
-        $user->fill($request->validated())->save();
-
-        return redirect('/admin/user/show/' . $user->id)->with('success_message', 'ユーザー情報を編集しました。');
-    }
-
-    public function delete(User $user)
-    {
-        $user->delete();
-
-        return redirect('/admin/user')->with('success_message', 'ユーザーを削除しました。');
     }
 }

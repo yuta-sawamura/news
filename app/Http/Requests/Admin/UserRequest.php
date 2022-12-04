@@ -3,8 +3,6 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Auth;
-use App\Enums\User\Role;
 
 class UserRequest extends FormRequest
 {
@@ -25,48 +23,13 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        if (Auth::user()->role === Role::System) {
-            return $this->systemRules();
-        } elseif (Auth::user()->role === Role::Organization_admin) {
-            return $this->organizationAdminRules();
-        }
-    }
-
-    /**
-     * Get the validation rules that apply to the request.
-     * システム管理者
-     *
-     * @return array
-     */
-    private function systemRules()
-    {
         return [
             'sei' => 'required|string|max:50',
             'mei' => 'required|string|max:50',
             'sei_kana' => 'nullable|string|max:100',
             'mei_kana' => 'nullable|string|max:100',
             'gender' => 'required|integer',
-            'email' => 'nullable|unique:users,email,' . $this->id . '|email|max:100|required_unless:role,' . Role::Normal,
-            'birth' => 'required|date',
-            'password' => 'nullable|string|min:8|required_unless:role,' . Role::Normal,
-        ];
-    }
-
-    /**
-     * Get the validation rules that apply to the request.
-     * 組織管理者
-     *
-     * @return array
-     */
-    private function organizationAdminRules()
-    {
-        return [
-            'sei' => 'required|string|max:50',
-            'mei' => 'required|string|max:50',
-            'sei_kana' => 'nullable|string|max:100',
-            'mei_kana' => 'nullable|string|max:100',
-            'gender' => 'required|integer',
-            'email' => 'nullable|unique:users,email,' . $this->id . '|email|max:100',
+            'email' => ['required', 'string', 'email:strict,dns', 'max:255', 'unique:users,email,' . $this->email . ',email'],
             'birth' => 'required|date',
             'password' => 'nullable|string|min:8',
         ];
